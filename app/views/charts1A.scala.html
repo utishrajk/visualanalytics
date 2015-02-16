@@ -1,0 +1,154 @@
+@(user: securesocial.core.Identity)(implicit request: RequestHeader)
+@import securesocial.core.IdentityProvider
+
+@import securesocial.core.Registry
+@import securesocial.core.IdentityProvider
+@import securesocial.core.providers.UsernamePasswordProvider
+@import securesocial.core.AuthenticationMethod._
+@import securesocial.core.providers.utils.RoutesHelper
+@import play.api.{Logger, Play}
+@import helper._
+@import play.api.Play
+
+@main("FEi Systems - BHAM") {
+
+<style>
+
+    body {
+    font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+    }
+
+    .bar {
+    fill: steelblue;
+    }
+
+    .x.axis path {
+    display: none;
+    }
+
+</style>
+
+
+<div id="wrapper">
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Health Status (Charts 1A)</h1>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> Race
+                    </div>
+
+                    <div class="panel-body">
+                        <div class='row-fluid'>
+                            <div class='row-graph span12' id='chart-race' style='color: black;'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> Gender
+                    </div>
+
+                    <div class="panel-body">
+                        <div class='row-fluid'>
+                            <div class='row-graph span12' id='chart-gender' style='color: black;'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> Age Group
+                    </div>
+
+                    <div class="panel-body">
+                        <div class='row-fluid'>
+                            <div class='row-graph span12' id='chart-agegroup' style='color: black;'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> Medical Conditions
+                    </div>
+
+                    <div class="panel-body">
+                        <div class='row-fluid'>
+                            <div class='row-graph span12' id='chart-medical' style='color: black;'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> Services Delivered
+                    </div>
+
+                    <div class="panel-body">
+                        <div class='row-fluid'>
+                            <div class='row-graph span12' id='chart-services' style='color: black;'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Health Status Outcome
+                    </div>
+                    <div class="panel-body">
+                        <div class='remaining-graphs span6'>
+                            <div class='row-fluid'>
+                                <div class='row-graph span12' id='chart-outcome' style='color: black;'>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Aggregate Health Status Outcome
+                    </div>
+                    <div class="panel-body">
+                        <div id = "serviceresult" />
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Business Logic -->
+<script src="@routes.Assets.at("javascripts/datavizpatient.js")" type="text/javascript"></script>
+
+
+}

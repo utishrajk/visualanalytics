@@ -1,0 +1,114 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>FEi Systems - Visual Analytics</title>
+
+        <!-- Core CSS - Include with every page -->
+        <link href="@routes.Assets.at("third/template/css/bootstrap.min.css")" rel="stylesheet">
+        <link href="@routes.Assets.at("third/template/font-awesome/css/font-awesome.css")" rel="stylesheet">
+
+        <!-- Page-Level Plugin CSS - Dashboard -->
+        <link href="@routes.Assets.at("third/template/css/plugins/morris/morris-0.4.3.min.css")" rel="stylesheet">
+        <link href="@routes.Assets.at("third/template/css/plugins/timeline/timeline.css")" rel="stylesheet">
+
+        <!-- SB Admin CSS - Include with every page -->
+        <link href="@routes.Assets.at("third/template/css/sb-admin.css")" rel="stylesheet">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("third/dc/css/dc.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("third/nvd3/nv.d3.css")">
+
+        <!-- Core Scripts - Include with every page -->
+        <script src="@routes.Assets.at("third/template/js/jquery-1.10.2.js")"></script>
+        <script src="@routes.Assets.at("third/template/js/bootstrap.min.js")"></script>
+        <script src="@routes.Assets.at("third/template/js/plugins/metisMenu/jquery.metisMenu.js")"></script>
+
+
+        <!-- SB Admin Scripts - Include with every page -->
+        <script src="@routes.Assets.at("third/template/js/sb-admin.js")"></script>
+
+
+        <!-- d3.js, dc.js and crossfilter -->
+        <script src="@routes.Assets.at("third/d3/d3.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("third/crossfilter/crossfilter.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("third/dc/dc.js")" type="text/javascript"></script>
+
+        <script src="@routes.Assets.at("third/nvd3/nv.d3.js")" type="text/javascript"></script>
+
+
+        </head>
+
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Visual Analytics</a>
+    </div>
+    <!-- /.navbar-header -->
+
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                </li>
+                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="@securesocial.controllers.routes.LoginPage.logout()"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                </li>
+            </ul>
+            <!-- /.dropdown-user -->
+        </li>
+    </ul>
+    </nav>
+
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li>
+                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts 1<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="/charts1a">Chart 1A</a>
+                    </li>
+                    <li>
+                        <a href="/charts1b">Chart 1B</a>
+                    </li>
+                </ul>
+
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts 2<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="flot.html">Chart 2A</a>
+                    </li>
+                    <li>
+                        <a href="morris.html">Chart 2B</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    </nav>
+
+    <body>
+        @content
+    </body>
+
+
+</html>

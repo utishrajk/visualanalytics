@@ -1,0 +1,160 @@
+<!-- important put the parameters for the function here for securty see charts1a.scala.html-->
+@import securesocial.core.IdentityProvider
+
+@import securesocial.core.Registry
+@import securesocial.core.IdentityProvider
+@import securesocial.core.providers.UsernamePasswordProvider
+@import securesocial.core.AuthenticationMethod._
+@import securesocial.core.providers.utils.RoutesHelper
+@import play.api.{Logger, Play}
+@import helper._
+@import play.api.Play
+
+@main("FEi Systems - BHAM") {
+
+<style>
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+    .bar {
+        fill: steelblue;
+    }
+
+    .x.axis path {
+        display: none;
+    }
+
+    #service-chart svg {
+    height: 400px;
+    }
+</style>
+
+
+<div id="wrapper">
+    <div id="page-wrapper">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Health Status (Charts 1B)</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> Search
+                    </div>
+
+                    <div class="panel-body">
+                        <div class='row-fluid'>
+                            <form id="ContactForm">
+
+                                Race
+                                <select name="race">
+                                    <option>Alaska Native</option>
+                                    <option>American Indian</option>
+                                    <option>Black</option>
+                                    <option>Hispanic</option>
+                                    <option>Native Hawaiian</option>
+                                    <option>White</option>
+                                </select>
+
+                                Gender
+                                <select name="gender">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+
+                                Age Group:
+                                <select name="agegroup">
+                                    <option value="0">10 to 12 years</option>
+                                    <option value="1">13 to 17 years</option>
+                                    <option value="2">18 to 24 years</option>
+                                    <option value="3">25 to 34 years</option>
+                                    <option value="4">35 to 44 years</option>
+                                    <option value="5">45 to 54 years</option>
+                                    <option value="6">55 to 64 years</option>
+                                    <option value="7">65 years old or greater</option>
+                                </select>
+
+                                Primary Diagnosis:
+                                <select name="primarydiagnosis">
+                                    <option>Opioid Abuse</option>
+                                    <option>Depressive Disorder NOS</option>
+                                    <option>Anxiety Disorder NOS</option>
+                                    <option>Bipolar Disorder NOS</option>
+                                </select>
+
+                                </br>
+                                </br>
+
+                                <!-- <input type="button" id="myButton" name="submit" value="Submit" /><br /> -->
+                                <button type="button" id="myButton" name="submit" class="btn btn-default">Submit</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br/>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i>Comorbid Conditions
+                    </div>
+
+                    <div class="panel-body">
+                        <div class='row-fluid'>
+                            <div class='row-graph span12' id='condition-chart' style='color: black;'>
+                               <svg></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i>Services
+                    </div>
+
+                    <div class="panel-body">
+                        <div class='row-fluid'>
+                            <div class='row-graph span12' id='service-chart' style='color: black;'>
+                                <svg></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!--Components -->
+<script src="@routes.Assets.at("third/components/components.js")" type="text/javascript"></script>
+<!-- Business Logic -->
+<script src="@routes.Assets.at("javascripts/scoreanalysis.js")" type="text/javascript"></script>
+
+
+
+
+
+}

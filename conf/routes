@@ -1,0 +1,51 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index(any = "none")
+
+GET     /charts1a                   controllers.Application.loadCharts1A(any = "none")
+GET     /charts1b                   controllers.Application.loadCharts1B(any = "none")
+
+POST    /submit/charts1b            controllers.ScoreController.retrieveComorbiditiesAndScore
+
+
+# Play routes serving HTML to AngularJS start with /views
+GET     /views/*any                 controllers.Application.loadPublicHTML(any)
+
+GET 	/api/patients				controllers.PatientsController.index
+GET     /api/deliveredservice       controllers.DeliveredServiceController.index
+GET     /api/serviceresult          controllers.DeliveredServiceController.serviceresult
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Login page
+GET     /login                      securesocial.controllers.LoginPage.login
+GET     /logout                     securesocial.controllers.LoginPage.logout
+
+# User Registration and password handling (only needed if you are using UsernamePasswordProvider)
+GET     /signup                     securesocial.controllers.Registration.startSignUp
+POST    /signup                     securesocial.controllers.Registration.handleStartSignUp
+GET     /signup/:token              securesocial.controllers.Registration.signUp(token)
+POST    /signup/:token              securesocial.controllers.Registration.handleSignUp(token)
+GET     /reset                      securesocial.controllers.Registration.startResetPassword
+POST    /reset                      securesocial.controllers.Registration.handleStartResetPassword
+GET     /reset/:token               securesocial.controllers.Registration.resetPassword(token)
+POST    /reset/:token               securesocial.controllers.Registration.handleResetPassword(token)
+GET     /password                   securesocial.controllers.PasswordChange.page
+POST    /password                   securesocial.controllers.PasswordChange.handlePasswordChange
+
+
+# Providers entry points
+GET     /authenticate/:provider     securesocial.controllers.ProviderController.authenticate(provider)
+POST    /authenticate/:provider     securesocial.controllers.ProviderController.authenticateByPost(provider)
+GET     /not-authorized             securesocial.controllers.ProviderController.notAuthorized
+
+# Redirect all unknown routes to the index page
+GET     /*any						controllers.Application.index(any)
+
+
+

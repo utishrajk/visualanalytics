@@ -1,0 +1,112 @@
+@(user: securesocial.core.Identity)(implicit request: RequestHeader)
+@import securesocial.core.IdentityProvider
+
+@import securesocial.core.Registry
+@import securesocial.core.IdentityProvider
+@import securesocial.core.providers.UsernamePasswordProvider
+@import securesocial.core.AuthenticationMethod._
+@import securesocial.core.providers.utils.RoutesHelper
+@import play.api.{Logger, Play}
+@import helper._
+@import play.api.Play
+
+@main("FEi Systems - BHAM") {
+
+<div id="wrapper">
+
+    <div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Health Status</h1>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bell fa-fw"></i> Race
+                </div>
+
+                <div class="panel-body" style="color:#000066">
+                    <div class='row-fluid'>
+                        <div class='row-graph span12' id='chart-race' style='color: black;'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bell fa-fw"></i> Gender
+                </div>
+
+                <div class="panel-body">
+                    <div class='row-fluid'>
+                        <div class='row-graph span12' id='chart-gender' style='color: black;'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bell fa-fw"></i> Age Group
+                </div>
+
+                <div class="panel-body">
+                    <div class='row-fluid'>
+                        <div class='row-graph span12' id='chart-agegroup' style='color: black;'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bell fa-fw"></i> Medical Conditions
+                </div>
+
+                <div class="panel-body">
+
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bell fa-fw"></i> Services Delivered
+                </div>
+
+                <div class="panel-body">
+                    <div class='remaining-graphs span6'>
+                        <div class='row-fluid'>
+                            <div class='row-graph span12' id='chart-delivered-services' style='color: black;'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Health Status Outcome
+                </div>
+
+                <div class="panel-body">
+                    <div id="morris-area-chart"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Business Logic -->
+<script src="@routes.Assets.at("javascripts/deliveredservice.js")" type="text/javascript"></script>
+
+
+}
